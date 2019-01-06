@@ -7,7 +7,7 @@ var geocodeAddress = (address, callback) => {
         url: `http://www.mapquestapi.com/geocoding/v1/address?key=aKnKUlaeDy5MgRdHpfPwxb43cGIG75mz&location=${encode}`,
         json: true
     }, (error, response, body) =>{
-        if (error) {
+        if (response.statusCode !== 200) {
             callback('unable to connect to server');
         } else {
         callback(undefined, {
